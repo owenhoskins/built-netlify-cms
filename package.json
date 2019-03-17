@@ -1,0 +1,36 @@
+{
+  "name": "netlify-cms",
+  "description": "An extensible, open source, Git-based, React CMS for static sites.",
+  "version": "2.4.0",
+  "homepage": "https://www.netlifycms.org",
+  "repository": "https://github.com/netlify/netlify-cms",
+  "bugs": "https://github.com/netlify/netlify-cms/issues",
+  "main": "dist/netlify-cms.js",
+  "scripts": {
+    "watch": "webpack -w",
+    "build": "cross-env NODE_ENV=production webpack",
+    "build-preview": "cross-env NODE_ENV=production webpack-dev-server --open",
+    "develop": "webpack-dev-server --hot"
+  },
+  "keywords": [
+    "netlify",
+    "cms",
+    "content editing",
+    "static site generators",
+    "jamstack"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "create-react-class": "^15.6.0",
+    "emotion": "^9.2.6",
+    "emotion-server": "^9.0.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.5.2",
+    "cross-env": "^5.2.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  }
+}
