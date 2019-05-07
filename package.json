@@ -20,8 +20,9 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@emotion/core": "^10.0.9",
-    "@emotion/styled": "^10.0.9",
+    "@emotion/cache": "^10.0.9",
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.10",
     "create-react-class": "^15.6.0",
     "immutable": "^3.7.6",
     "lodash": "^4.17.11",
