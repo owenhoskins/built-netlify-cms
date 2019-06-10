@@ -127,9 +127,11 @@ class PagePreview extends React.Component {
   }
 }
 
-registerPreviewTemplate('page', props => {
+registerPreviewTemplate('artists', props => {
   return (
     <CSSInjector>
       <PagePreview {...props} />
     </CSSInjector>
 )})
+
+console.log('I am updated')
