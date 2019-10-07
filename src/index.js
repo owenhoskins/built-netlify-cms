@@ -5,6 +5,7 @@ import './backends';
 import './widgets';
 import './editor-components';
 import './media-libraries';
+//import './preview-templates';
 
 /**
  * Load Netlify CMS automatically if `window.CMS_MANUAL_INIT` is set.

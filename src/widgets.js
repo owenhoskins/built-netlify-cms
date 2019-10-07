@@ -1,15 +1,12 @@
 import * as CMS from '../../netlify-cms-core/src';
-import React from 'react';
 
 const { registerWidget } = CMS;
-const { registerPreviewTemplate } = CMS;
 
 import { GalleryControl, GalleryPreview } from '../../netlify-cms-widget-gallery/src';
 registerWidget('gallery', GalleryControl, GalleryPreview);
 
 import { VimeoControl, VimeoPreview } from '../../netlify-cms-widget-vimeo/src';
 registerWidget('vimeo', VimeoControl, VimeoPreview);
-
 
 import * as NetlifyCmsWidgetString from '../../netlify-cms-widget-string/src';
 import * as NetlifyCmsWidgetNumber from '../../netlify-cms-widget-number/src';
@@ -79,59 +76,3 @@ registerWidget(
 registerWidget('boolean', NetlifyCmsWidgetBoolean.controlComponent);
 registerWidget('map', NetlifyCmsWidgetMap.controlComponent, NetlifyCmsWidgetMap.previewComponent);
 registerWidget([NetlifyCmsWidgetDate.Widget(), NetlifyCmsWidgetDatetime.Widget()]);
-
-
-import createCache from '@emotion/cache'
-import { CacheProvider } from '@emotion/core'
-import styled from '@emotion/styled'
-
-
-class CSSInjector extends React.Component {
-  constructor() {
-    super()
-    const iframe = document.getElementsByTagName('iframe')[0]
-    const iframeHead = iframe.contentDocument.head
-    this.cache = createCache({ container: iframeHead })
-  }
-
-  render() {
-    return (
-      <CacheProvider value={this.cache}>
-        {this.props.children}
-      </CacheProvider>
-    )
-  }
-}
-
-const PreviewContainer = styled.div`
-  font-family: Roboto, 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
-`;
-
-function isVisible(field) {
-  return field.get('widget') !== 'hidden';
-}
-
-class PagePreview extends React.Component {
-  render() {
-    const { collection, fields, widgetFor } = this.props;
-    if (!collection || !fields) {
-      return null;
-    }
-    return (
-      <PreviewContainer>
-        {fields.filter(isVisible).map(field => (
-          <div key={field.get('name')}>{widgetFor(field.get('name'))}</div>
-        ))}
-      </PreviewContainer>
-    );
-  }
-}
-
-registerPreviewTemplate('artists', props => {
-  return (
-    <CSSInjector>
-      <PagePreview {...props} />
-    </CSSInjector>
-)})
-
-console.log('I am updated')
